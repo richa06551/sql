@@ -24,6 +24,9 @@ Key Features:
 SQL scripts were created to detect duplicate rows in each of the Feed tables (Feed1, Feed2, Feed3) based on all column values. The duplicates were identified using GROUP BY and HAVING COUNT(*) > 1. These duplicate records were extracted and written into an output table named duplicates for review and further action.
 ![17](https://github.com/user-attachments/assets/d5c56b9d-cc4d-48ca-8c23-bcad5e062f27)
 ![18](https://github.com/user-attachments/assets/05c0fb29-eb34-4a12-8103-7e41ffe148fc)
+![re2](https://github.com/user-attachments/assets/514074f1-61c1-4e24-b73f-86cd692278cf)
+![re1](https://github.com/user-attachments/assets/dc22ccc3-d647-4169-8fba-46bf67d944dc)
+
 ## Requirement 5: Replace Duplicates with Unique Rows
 Designed a script to:
 1. Delete duplicate rows while keeping one instance.
@@ -37,6 +40,11 @@ Re-ran the duplicate detection scripts to ensure:
 ![11](https://github.com/user-attachments/assets/ba7d9ff8-62fb-45e3-978c-b1a0cf4ccef6)
 ![12](https://github.com/user-attachments/assets/2d949872-d8cc-4e9b-9299-d7f4c16ee775)
 ![13](https://github.com/user-attachments/assets/b49d1162-0faf-47ab-bc53-5afca02d3fad)
+![re3](https://github.com/user-attachments/assets/53182fd2-7362-4b14-a950-00e1aaec8461)
+![re4](https://github.com/user-attachments/assets/605dca23-aaf8-4ecf-af52-492db79ac71e)
+![re5](https://github.com/user-attachments/assets/22395bcd-cbf1-4a15-9ce9-fedf36ec170a)
+
+
 ## Requirement 7: Data Comparison Across Feeds
 Created a script to compare Feed_2 and Feed_3 with Feed_1 on overlapping columns.
 Comparison Logic:
@@ -50,16 +58,25 @@ Comparison Logic:
 To validate that the SQL logic correctly identifies and inserts only those records that are present in all three feed tables (Feed1, Feed2, and Feed3) into a new table called common_records.
 
 ### Test Scenarios & Manual Test Cases
-![20](https://github.com/user-attachments/assets/ffeae047-2cdb-4bf3-8fc2-6274d8538c30)
+<img width="538" height="818" alt="image" src="https://github.com/user-attachments/assets/de308cd9-85d7-4bdc-8490-caf33082c04c" />
 
-### Assumptions:
-1. The matching logic is based on all four columns: name, city, dept, and manager.
-2. MySQL is used (doesn’t support INTERSECT natively), so joins are used to simulate the behavior.
+
+### Notes:
+1. Ensure secure_file_priv allows writing CSVs to the path.
+2. Verify that duplicate tables correctly reflect the duplicates in feeds.
+3. Random data should be within expected values (e.g., salary between 30,000–80,000).
+4. Temporary tables in procedures should not persist beyond the session.
+5. Re-run tests to check idempotency and consistency.
+
 ## Requirement 9: Test Case Automation
 Developed a repeatable SQL automation process:
 1. Combined multiple stored procedures in a test harness procedure: TestAllFeeds().
 2. Automates population, duplication check, correction, and validation.
 Where applicable, procedures and views have been created to mimic automation pipelines.
 ![16](https://github.com/user-attachments/assets/cb648316-a277-4edc-b0df-a70eb2e2aec4)
+![re6](https://github.com/user-attachments/assets/5d362e34-28b2-4cdf-a798-acae07ea263e)
+![re7](https://github.com/user-attachments/assets/5571fb82-dcbc-49a7-99c3-7b182e05ae19)
+![re8](https://github.com/user-attachments/assets/70652f7f-d3f9-4b04-9c9f-fb415a0d0a85)
+
 
 
