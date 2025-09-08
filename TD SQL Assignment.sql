@@ -1,3 +1,4 @@
+--Req 1
 CREATE DATABASE feedassignment;
 USE feedassignment;
 CREATE TABLE Feed1 ( 
@@ -31,6 +32,8 @@ CREATE TABLE Feed3 (
     emp_code VARCHAR(10),
     team VARCHAR(50)
 );
+
+--Req 2
 DELIMITER &&
 CREATE PROCEDURE InsertData(IN feedName VARCHAR(10), IN rowCount INT)
 BEGIN
@@ -90,6 +93,8 @@ CALL InsertData('Feed3', 20);
 SELECT * FROM Feed1;
 SELECT * FROM Feed2;
 SELECT * FROM Feed3;
+
+-- Req 3 & 4
 CREATE TABLE Feed1_Duplicates AS SELECT
 name, city, dept, manager, shift, remarks, status, level, location, country,
 COUNT(*) AS cnt
@@ -134,6 +139,8 @@ INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 8.4/Uploads/Feed3_Duplicates_v2.
 FIELDS TERMINATED BY ',' ENCLOSED BY '"'
 LINES TERMINATED BY '\n';
 SHOW VARIABLES LIKE 'secure_file_priv';
+
+-- Req 5
 CREATE TABLE Feed1_Unique AS SELECT DISTINCT * FROM Feed1;
 DROP TABLE Feed1;
 ALTER TABLE Feed1_Unique RENAME TO Feed1;
@@ -143,6 +150,8 @@ ALTER TABLE Feed2_Unique RENAME TO Feed2;
 CREATE TABLE Feed3_Unique AS SELECT DISTINCT * FROM Feed3;
 DROP TABLE Feed3;
 ALTER TABLE Feed3_Unique RENAME TO Feed3;
+
+-- Req 6
 SELECT COUNT(*) AS duplicate_count
 FROM (
   SELECT COUNT(*) 
@@ -164,6 +173,8 @@ FROM (
   GROUP BY name, city, dept, manager, shift, remarks, status, level, location, country, doj, salary, bonus, project, probation_status, grade, email, mobile, emp_code, team
   HAVING COUNT(*) > 1
 ) t;
+
+-- Req 7
 SELECT f2.*, f1.* FROM Feed2 f2
 JOIN Feed1 f1
 ON f2.name = f1.name AND f2.city = f1.city AND f2.dept = f1.dept AND f2.manager = f1.manager AND f2.shift
@@ -174,6 +185,8 @@ JOIN Feed1 f1
 ON f3.name = f1.name AND f3.city = f1.city AND f3.dept = f1.dept AND f3.manager = f1.manager AND f3.shift
 = f1.shift AND f3.remarks = f1.remarks AND f3.status = f1.status AND f3.level = f1 .level 
 AND f3.location = f1.location AND f3.country = f1.country;
+
+-- Req 9
 DELIMITER &&
 CREATE PROCEDURE RunTests()
 BEGIN
