@@ -37,9 +37,7 @@ Designed a script to:
 Re-ran the duplicate detection scripts to ensure:
 1. Zero duplicates present in all Feed tables post-processing.
 2. Validation queries were documented via screenshots.
-![11](https://github.com/user-attachments/assets/ba7d9ff8-62fb-45e3-978c-b1a0cf4ccef6)
-![12](https://github.com/user-attachments/assets/2d949872-d8cc-4e9b-9299-d7f4c16ee775)
-![13](https://github.com/user-attachments/assets/b49d1162-0faf-47ab-bc53-5afca02d3fad)
+
 ![re3](https://github.com/user-attachments/assets/53182fd2-7362-4b14-a950-00e1aaec8461)
 ![re4](https://github.com/user-attachments/assets/605dca23-aaf8-4ecf-af52-492db79ac71e)
 ![re5](https://github.com/user-attachments/assets/22395bcd-cbf1-4a15-9ce9-fedf36ec170a)
